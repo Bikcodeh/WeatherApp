@@ -2,110 +2,111 @@ package com.bikcodeh.myapplication.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.bikcodeh.myapplication.R
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontWeight
 
-val WeatherFonts = FontFamily(
-    Font(R.font.nunito_light, weight = FontWeight.Light),
-    Font(R.font.nunito_medium, weight = FontWeight.Medium),
-    Font(R.font.nunito_regular, weight = FontWeight.Normal),
-    Font(R.font.nunito_bold, weight = FontWeight.Bold)
+val NunitoLight = FontFamily(
+    Font(R.font.nunito_light, FontWeight.W300),
 )
 
-val WeatherTypography = Typography(
+val NunitoMedium = FontFamily(
+    Font(R.font.nunito_medium, FontWeight.W500),
+)
+
+val NunitoRegular = FontFamily(
+    Font(R.font.nunito_regular, FontWeight.W400),
+)
+
+val NunitoBold = FontFamily(
+    Font(R.font.nunito_bold, FontWeight.W700),
+)
+
+val weatherTypography = Typography(
     displayLarge = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
-        fontSize = 57.sp,
-        letterSpacing = 0.em,
+        fontFamily = NunitoBold,
+        fontSize = 60.sp,
+        letterSpacing = (-1.5).sp
     ),
     displayMedium = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Light,
-        fontSize = 45.sp,
-        letterSpacing = 0.em,
+        fontFamily = NunitoBold,
+        fontSize = 48.sp,
+        letterSpacing = (-0.5).sp
     ),
     displaySmall = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
-        fontSize = 36.sp,
-        letterSpacing = 0.em,
+        fontFamily = NunitoBold,
+        fontSize = 34.sp,
+        letterSpacing = 0.sp
     ),
     headlineLarge = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
-        fontSize = 32.sp,
-        letterSpacing = 0.01.em,
+        fontFamily = NunitoMedium,
+        fontSize = 24.sp,
+        letterSpacing = (-0.5).sp
     ),
     headlineMedium = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
-        fontSize = 24.sp,
-        letterSpacing = 0.em,
+        fontFamily = NunitoMedium,
+        fontSize = 20.sp,
+        letterSpacing = 0.sp
     ),
     headlineSmall = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Medium,
-        fontSize = 32.sp,
-        letterSpacing = 0.15.em,
+        fontFamily = NunitoMedium,
+        fontSize = 18.sp,
+        letterSpacing = 0.25.sp
     ),
     titleLarge = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
+        fontFamily = NunitoBold,
         fontSize = 20.sp,
-        letterSpacing = 0.01.em
+        letterSpacing = (-0.25).sp
     ),
     titleMedium = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Medium,
+        fontFamily = NunitoBold,
         fontSize = 16.sp,
-        letterSpacing = 0.15.em,
+        letterSpacing = 0.sp
     ),
     titleSmall = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Medium,
+        fontFamily = NunitoBold,
         fontSize = 14.sp,
-        letterSpacing = 0.09.em
-
-    ),
-    labelLarge = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Light,
-        fontSize = 14.sp,
-        letterSpacing = 0.02.em
-    ),
-    labelMedium = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Medium,
-        fontSize = 12.sp,
-        letterSpacing = 0.em
-    ),
-    labelSmall = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        letterSpacing = 0.5.em
+        letterSpacing = (0.15).sp
     ),
     bodyLarge = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Medium,
+        fontFamily = NunitoRegular,
         fontSize = 16.sp,
-        letterSpacing = 0.03.em
+        letterSpacing = (0.5).sp,
+        lineHeight = 24.sp,
     ),
     bodyMedium = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
+        fontFamily = NunitoRegular,
         fontSize = 14.sp,
-        letterSpacing = 0.25.em
+        letterSpacing = (0.25).sp,
+        lineHeight = 20.sp,
     ),
     bodySmall = TextStyle(
-        fontFamily = WeatherFonts,
-        fontWeight = FontWeight.Normal,
+        fontFamily = NunitoRegular,
         fontSize = 12.sp,
-        letterSpacing = 0.02.em
+        letterSpacing = (0.4).sp,
+        lineHeight = 16.sp,
+    ),
+    labelLarge = TextStyle(
+        fontFamily = NunitoMedium,
+        fontSize = 14.sp,
+        letterSpacing = (0.15).sp,
+        lineHeight = 20.sp,
+        fontWeight = FontWeight.W500
+    ),
+    labelMedium = TextStyle(
+        fontFamily = NunitoMedium,
+        fontSize = 12.sp,
+        letterSpacing = (0.4).sp,
+        lineHeight = 16.sp,
+        fontWeight = FontWeight.W500
+    ),
+    labelSmall = TextStyle(
+        fontFamily = NunitoMedium,
+        fontSize = 10.sp,
+        letterSpacing = (0.5).sp,
+        lineHeight = 16.sp,
+        fontWeight = FontWeight.W500
     )
 )

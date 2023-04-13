@@ -99,7 +99,7 @@ fun WeatherAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = WeatherTypography,
+        typography = weatherTypography,
         content = content
     )
 }
