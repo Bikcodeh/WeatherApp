@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bikcodeh.myapplication.R
@@ -18,12 +19,13 @@ fun WeatherTextButton(
     modifier: Modifier = Modifier,
     @StringRes title: Int,
     isSelected: Boolean,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    colorSelected: Color = yellow
 ) {
     TextButton(modifier = modifier, onClick = onClick) {
         Text(
             text = stringResource(id = title), style = MaterialTheme.typography.bodyLarge,
-            color = if (isSelected) yellow else textColor
+            color = if (isSelected) colorSelected else textColor
         )
     }
 }
