@@ -1,5 +1,7 @@
 package com.bikcodeh.myapplication.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF4C57A9)
@@ -69,3 +71,8 @@ val blue_magenta_violet = Color(0xFF48319D)
 val yankees_blue = Color(0xFF1F1D47)
 val vivid_mulberry = Color(0xFFC427FB)
 val pale_lavender = Color(0xFFE0D9FF)
+val yellow = Color(0xFFC7AE73)
+
+val textColor
+    @Composable
+    get() = if (isSystemInDarkTheme()) Color.White else Color.Black
