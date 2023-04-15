@@ -1,6 +1,7 @@
 package com.bikcodeh.myapplication.ui.screens.home.components
 
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bikcodeh.myapplication.R
 import com.bikcodeh.myapplication.ui.components.CardHeader
+import com.bikcodeh.myapplication.ui.components.WeatherItem
 import com.bikcodeh.myapplication.ui.components.WeatherTextButton
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,6 +73,29 @@ fun HomeScreen() {
                         tomorrowForecastSelected = false
                         nextDaysForecastSelected = true
                     })
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp)
+                    .horizontalScroll(rememberScrollState())
+            ) {
+                WeatherItem(
+                    temperature = "26",
+                    time = "10 AM",
+                    weatherIcon = R.drawable.ic_blizzard
+                )
+                WeatherItem(
+                    temperature = "20",
+                    time = "2 PM",
+                    weatherIcon = R.drawable.ic_blowing_snow
+                )
+                WeatherItem(
+                    temperature = "32",
+                    time = "9 AM",
+                    weatherIcon = R.drawable.ic_heavy_rain
+                )
             }
         }
     }

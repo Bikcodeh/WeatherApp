@@ -71,7 +71,7 @@ val blue_magenta_violet = Color(0xFF48319D)
 val yankees_blue = Color(0xFF1F1D47)
 val vivid_mulberry = Color(0xFFC427FB)
 val pale_lavender = Color(0xFFE0D9FF)
-val yellow = Color(0xFFC7AE73)
+val yellow = Color(0xFFEEC32D)
 
 val textColor
     @Composable
