@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id "kotlin-parcelize"
 }
 
 android {
@@ -26,6 +27,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "WEATHER_API", getProps("WEATHER_API")
+        }
+        debug {
+            buildConfigField "String", "WEATHER_API", getProps("WEATHER_API")
         }
     }
     compileOptions {
@@ -52,6 +57,17 @@ kapt {
     correctErrorTypes true
 }
 
+def getProps(String propName) {
+    def propsFile = rootProject.file('local.properties')
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        return props[propName].toString()
+    } else {
+        return ""
+    }
+}
+
 dependencies {
 
     implementation libs.core.ktx
@@ -68,4 +84,11 @@ dependencies {
     implementation libs.timber
     implementation libs.splash.api
     kapt libs.hilt.compiler
+
+    /** Network */
+    implementation libs.retrofit
+    implementation libs.okHttp
+    implementation libs.okhttplogginginterceptor
+    implementation libs.moshi
+    implementation libs.moshi.kotlin
 }
