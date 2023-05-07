@@ -96,6 +96,21 @@ fun HomeScreen() {
                     time = "9 AM",
                     weatherIcon = R.drawable.ic_heavy_rain
                 )
+                WeatherItem(
+                    temperature = "26",
+                    time = "10 AM",
+                    weatherIcon = R.drawable.ic_blizzard
+                )
+                WeatherItem(
+                    temperature = "20",
+                    time = "2 PM",
+                    weatherIcon = R.drawable.ic_blowing_snow
+                )
+                WeatherItem(
+                    temperature = "32",
+                    time = "9 AM",
+                    weatherIcon = R.drawable.ic_heavy_rain
+                )
             }
         }
     }
