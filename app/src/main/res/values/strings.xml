@@ -4,4 +4,14 @@
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
     <string name="next_five_days">Next 5 Days</string>
+
+    <string name="error_connection">Ups! No internet connection, please try again later</string>
+    <string name="error_parsing">Ups! An error happened parsing the data</string>
+    <string name="error_server">Ups! An internal error server occurred, please try again later.</string>
+    <string name="error_timeout">Ups! Timeout, please try again later.</string>
+    <string name="error_unknown">Ups! An unexpected error happened, please try again later.</string>
+    <string name="error_limited_points_error">Ups! Your daily points are over.</string>
+    <string name="error_unauthorized_error">Ups! Unauthorized user</string>
+    <string name="error_invalid_request_error">Ups! Invalid request happened</string>
+    <string name="error_not_found_error">Ups! Not found error happened</string>
 </resources>
