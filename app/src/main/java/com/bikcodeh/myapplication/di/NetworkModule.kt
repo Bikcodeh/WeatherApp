@@ -2,6 +2,7 @@ package com.bikcodeh.myapplication.di
 
 import com.bikcodeh.myapplication.BuildConfig
 import com.bikcodeh.myapplication.data.remote.interceptor.AuthInterceptor
+import com.bikcodeh.myapplication.data.remote.service.WeatherApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,6 +49,10 @@ object NetworkModule {
         .client(okHttpClient)
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
+
+    @Provides
+    @Singleton
+    fun providesWeatherApi(retrofit: Retrofit): WeatherApi = retrofit.create(WeatherApi::class.java)
 }
 
 private const val BASE_URL = "https://api.openweathermap.org/data/2.5/forecast/"

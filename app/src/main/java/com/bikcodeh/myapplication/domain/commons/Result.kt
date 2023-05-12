@@ -6,7 +6,6 @@ package com.bikcodeh.myapplication.domain.commons
 sealed class Result<out T> {
     class Success<T>(val data: T) : Result<T>()
     class Error<T>(val failure: Failure) : Result<T>()
-    object Loading: Result<Nothing>()
 }
 
 /**
@@ -15,8 +14,7 @@ sealed class Result<out T> {
 @Suppress("TooGenericExceptionCaught")
 inline fun <R, T> Result<T>.fold(
     onSuccess: (value: T) -> R,
-    onError: (failure: Failure) -> R,
-    onLoading: () -> R
+    onError: (failure: Failure) -> R
 ): R {
     return when (this) {
         is Result.Success -> {
@@ -27,7 +25,6 @@ inline fun <R, T> Result<T>.fold(
             }
         }
         is Result.Error -> onError(failure)
-        Result.Loading -> onLoading()
     }
 }
 
