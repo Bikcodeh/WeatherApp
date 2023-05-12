@@ -22,10 +22,13 @@ import com.bikcodeh.myapplication.R
 import com.bikcodeh.myapplication.ui.components.CardHeader
 import com.bikcodeh.myapplication.ui.components.WeatherItem
 import com.bikcodeh.myapplication.ui.components.WeatherTextButton
+import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    homeViewModel: HomeViewModel
+) {
     var todayForecastSelected by remember { mutableStateOf(true) }
     var tomorrowForecastSelected by remember { mutableStateOf(false) }
     var nextDaysForecastSelected by remember { mutableStateOf(false) }

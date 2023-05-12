@@ -1,5 +1,6 @@
 package com.bikcodeh.myapplication.data.repository
 
+import com.bikcodeh.myapplication.data.remote.dto.WeatherDTO
 import com.bikcodeh.myapplication.data.remote.dto.WeatherObjectDTO
 import com.bikcodeh.myapplication.data.remote.service.WeatherApi
 import com.bikcodeh.myapplication.domain.commons.makeSafeRequest
@@ -11,7 +12,7 @@ class WeatherRepositoryImpl @Inject constructor(
     private val weatherApi: WeatherApi
 ) : WeatherRepository {
 
-    override suspend fun getWeather(city: String): Result<WeatherObjectDTO> {
+    override suspend fun getWeather(city: String): Result<WeatherDTO> {
         return makeSafeRequest { weatherApi.getWeather(query = city) }
     }
 }
