@@ -1,13 +1,11 @@
 package com.bikcodeh.myapplication.ui.screens.home.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bikcodeh.myapplication.domain.repository.DispatcherProvider
 import com.bikcodeh.myapplication.domain.commons.fold
+import com.bikcodeh.myapplication.domain.repository.DispatcherProvider
 import com.bikcodeh.myapplication.domain.repository.WeatherRepository
+import com.bikcodeh.myapplication.ui.util.MVIViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,10 +13,8 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val weatherRepository: WeatherRepository,
     private val dispatcher: DispatcherProvider
-) : ViewModel() {
-
-    private val _effectChannel = Channel<HomeEffect>(Channel.UNLIMITED)
-    val effects = _effectChannel.receiveAsFlow()
+) : MVIViewModel<
+        HomeUiState, HomeEffect, HomeEvent>(dispatcher = dispatcher) {
 
     private fun getWeather(city: String) {
         viewModelScope.launch(dispatcher.io) {
@@ -31,6 +27,14 @@ class HomeViewModel @Inject constructor(
 
                     }
                 )
+        }
+    }
+
+    override fun setInitialState(): HomeUiState = HomeUiState()
+
+    override fun handleEvents(event: HomeEvent) {
+        when (event) {
+            is HomeEvent.GetWeather -> getWeather(event.city)
         }
     }
 }
