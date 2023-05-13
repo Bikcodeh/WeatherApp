@@ -19,6 +19,8 @@ moshi = "2.4.0"
 moshi-kotlin = "1.9.3"
 service-location = "18.0.0"
 easy-permission = "1.0.0"
+accompanist = "0.31.2-alpha"
+crashlytics = "18.3.7"
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -45,3 +47,6 @@ moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "mosh
 moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "moshi" }
 service-location= { module = "com.google.android.gms:play-services-location", version.ref = "service-location" }
 easy-permission= { module = "com.vmadalin:easypermissions-ktx", version.ref = "easy-permission" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist"}
+accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist"}
+crashlytics = { module= "com.google.firebase:firebase-crashlytics-ktx", version.ref = "crashlytics"}

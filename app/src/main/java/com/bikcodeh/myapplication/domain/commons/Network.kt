@@ -1,7 +1,8 @@
 package com.bikcodeh.myapplication.domain.commons
 
-import kotlinx.coroutines.withContext
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import timber.log.Timber
 
@@ -24,6 +25,7 @@ suspend fun <T : Any> makeSafeRequest(
             }
         } catch (e: Exception) {
             Timber.e(e)
+            FirebaseCrashlytics.getInstance().recordException(e)
             Result.Error(Failure.analyzeException(e))
         }
     }

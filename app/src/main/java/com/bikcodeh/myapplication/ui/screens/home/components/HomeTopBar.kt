@@ -1,6 +1,7 @@
 package com.bikcodeh.myapplication.ui.screens.home.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -29,10 +30,3 @@ fun HomeTopBar(modifier: Modifier = Modifier) {
 private fun HomeTopBarPreview() {
     HomeTopBar()
 }
-
-@Preview(uiMode =  UI_MODE_NIGHT_YES)
-@Composable
-private fun HomeTopBarPreviewDark() {
-    HomeTopBar()
-}
-

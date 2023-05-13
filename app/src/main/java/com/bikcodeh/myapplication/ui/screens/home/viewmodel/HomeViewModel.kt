@@ -29,12 +29,12 @@ class HomeViewModel @Inject constructor(
             weatherRepository.findCurrentGeoPosition(lat = "3.4430794", lon = "-76.5393492")
                 .fold(
                     onSuccess = {
-                        _viewState.value = _viewState.value.copy(data = it)
                         setEffect { HomeEffect.Loading(false) }
+                        _viewState.value = _viewState.value.copy(data = it)
                     },
                     onError = {
-                        setEffect { HomeEffect.ShowErrorScreen(Failure.getMessageResId(it)) }
                         setEffect { HomeEffect.Loading(false) }
+                        setEffect { HomeEffect.ShowErrorScreen(Failure.getMessageResId(it)) }
                     }
                 )
         }

@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
@@ -26,10 +26,10 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bikcodeh.myapplication.R
 import com.bikcodeh.myapplication.ui.components.CardHeader
+import com.bikcodeh.myapplication.ui.components.ErrorScreen
 import com.bikcodeh.myapplication.ui.components.WeatherItem
 import com.bikcodeh.myapplication.ui.components.WeatherTextButton
 import com.bikcodeh.myapplication.ui.screens.home.components.HomeTopBar
@@ -74,21 +74,39 @@ fun HomeScreen(
     var tomorrowForecastSelected by remember { mutableStateOf(false) }
     var nextDaysForecastSelected by remember { mutableStateOf(false) }
 
-    Scaffold(topBar = { HomeTopBar() }, modifier = Modifier.fillMaxSize()) {
-
+    Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
+        HomeTopBar(
+            modifier = Modifier.statusBarsPadding()
+        )
+    }) { paddingValues ->
         if (effect is HomeEffect.Loading && (effect as HomeEffect.Loading).isLoading) {
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 CircularProgressIndicator()
             }
-        } else {
+        } else if (effect is HomeEffect.ShowErrorScreen) {
+            ErrorScreen(
+                message = context.getString(
+                    (effect as HomeEffect.ShowErrorScreen).errorMessage
+                )
+            ) {
+                homeViewModel.sendEvent {
+                    HomeEvent.GetWeather("seattle")
+                }
+            }
+        }
+        state.data?.let {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = it.calculateTopPadding())
+                    .padding(
+                        top = paddingValues.calculateTopPadding(),
+                        bottom = paddingValues.calculateBottomPadding()
+                    )
                     .verticalScroll(rememberScrollState())
             ) {
 
@@ -100,7 +118,7 @@ fun HomeScreen(
 
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        //.fillMaxWidth()
                         .horizontalScroll(rememberScrollState())
                         .padding(horizontal = 16.dp)
                 ) {
@@ -132,7 +150,7 @@ fun HomeScreen(
 
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        //.fillMaxWidth()
                         .padding(start = 16.dp)
                         .horizontalScroll(rememberScrollState())
                 ) {

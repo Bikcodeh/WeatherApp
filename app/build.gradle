@@ -4,6 +4,8 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
     id "kotlin-parcelize"
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -87,7 +89,9 @@ dependencies {
     kapt libs.hilt.compiler
     implementation libs.service.location
     implementation libs.easy.permission
-    implementation "com.google.accompanist:accompanist-permissions:0.31.2-alpha"
+    implementation libs.crashlytics
+    implementation libs.accompanist.permissions
+    implementation libs.accompanist.insets
 
     /** Network */
     implementation libs.retrofit
