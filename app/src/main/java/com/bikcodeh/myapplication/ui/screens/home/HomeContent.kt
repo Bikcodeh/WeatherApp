@@ -28,6 +28,7 @@ import com.bikcodeh.myapplication.ui.components.ErrorScreen
 import com.bikcodeh.myapplication.ui.components.WeatherTextButton
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeEffect
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeUiState
+import com.bikcodeh.myapplication.ui.util.Util
 
 @ExperimentalMaterial3Api
 @Composable
@@ -38,9 +39,7 @@ fun HomeContent(
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
-    var todayForecastSelected by remember { mutableStateOf(true) }
-    var tomorrowForecastSelected by remember { mutableStateOf(false) }
-    var nextDaysForecastSelected by remember { mutableStateOf(false) }
+    var forecastSelected by remember { mutableStateOf(context.getString(R.string.today)) }
 
     if (effect is HomeEffect.Loading && effect.isLoading) {
         Column(
@@ -79,30 +78,13 @@ fun HomeContent(
                     .horizontalScroll(rememberScrollState())
                     .padding(horizontal = 16.dp)
             ) {
-                WeatherTextButton(
-                    isSelected = todayForecastSelected,
-                    title = R.string.today,
-                    onClick = {
-                        todayForecastSelected = true
-                        tomorrowForecastSelected = false
-                        nextDaysForecastSelected = false
-                    })
-                WeatherTextButton(
-                    isSelected = tomorrowForecastSelected,
-                    title = R.string.tomorrow,
-                    onClick = {
-                        todayForecastSelected = false
-                        tomorrowForecastSelected = true
-                        nextDaysForecastSelected = false
-                    })
-                WeatherTextButton(
-                    isSelected = nextDaysForecastSelected,
-                    title = R.string.next_five_days,
-                    onClick = {
-                        todayForecastSelected = false
-                        tomorrowForecastSelected = false
-                        nextDaysForecastSelected = true
-                    })
+                Util.buildWeatherButtons(context).forEach { weatherButton ->
+                    WeatherTextButton(
+                        isSelected = forecastSelected == weatherButton.text,
+                        title = weatherButton.text,
+                        onClick = { forecastSelected = weatherButton.text }
+                    )
+                }
             }
 
             /*Row(

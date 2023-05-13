@@ -32,7 +32,7 @@ class HomeViewModel @Inject constructor(
 
     private val _viewState = MutableStateFlow(
         HomeUiState(
-            data = null
+            data = currentConditionMock
         )
     )
     val viewState: StateFlow<HomeUiState> get() = _viewState.asStateFlow()

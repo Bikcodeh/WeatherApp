@@ -37,8 +37,8 @@ fun HomeScreen(
             onError = {
                 navigateToPermission()
             }, onSuccess = { lat, lon ->
-                homeViewModel.sendEvent { HomeEvent.SetCoordinate(CoordinateDTO(lat, lon)) }
-                homeViewModel.sendEvent { HomeEvent.GetWeather(lat, lon) }
+                //homeViewModel.sendEvent { HomeEvent.SetCoordinate(CoordinateDTO(lat, lon)) }
+                //homeViewModel.sendEvent { HomeEvent.GetWeather(lat, lon) }
             })
     }
 
