@@ -82,7 +82,10 @@ fun HomeContent(
                     WeatherTextButton(
                         isSelected = forecastSelected == weatherButton.text,
                         title = weatherButton.text,
-                        onClick = { forecastSelected = weatherButton.text }
+                        onClick = {
+                            forecastSelected = weatherButton.text
+                            //TODO: Logic to change the data
+                        }
                     )
                 }
             }

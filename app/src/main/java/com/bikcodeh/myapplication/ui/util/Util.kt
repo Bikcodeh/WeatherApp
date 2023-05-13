@@ -10,12 +10,6 @@ import com.google.android.gms.location.LocationServices
 
 object Util {
 
-    enum class WeatherButtons(val text: Int) {
-        TODAY(R.string.today),
-        TOMORROW(R.string.tomorrow),
-        NEXT_FIVE_DAYS(R.string.next_five_days)
-    }
-
     fun getCoordinates(context: Context, onSuccess: (String, String) -> Unit, onError: () -> Unit) {
         if (ActivityCompat.checkSelfPermission(
                 context,
@@ -32,6 +26,12 @@ object Util {
             .addOnSuccessListener { location ->
                 onSuccess(location.latitude.toString(), location.longitude.toString())
             }
+    }
+
+    enum class WeatherButtons(val text: Int) {
+        TODAY(R.string.today),
+        TOMORROW(R.string.tomorrow),
+        NEXT_FIVE_DAYS(R.string.next_five_days)
     }
 
     fun buildWeatherButtons(context: Context): List<WeatherButton> {
