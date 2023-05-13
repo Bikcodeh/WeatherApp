@@ -1,17 +1,22 @@
 package com.bikcodeh.myapplication.data.remote.service
 
-import com.bikcodeh.myapplication.data.remote.dto.WeatherDTO
-import com.bikcodeh.myapplication.data.remote.dto.WeatherObjectDTO
+import com.bikcodeh.myapplication.data.remote.dto.currentcondition.CurrentConditionResponseDTO
+import com.bikcodeh.myapplication.data.remote.dto.geoposition.GeoPositionDTO
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import javax.inject.Singleton
 
 @Singleton
 interface WeatherApi {
-    @GET("data/2.5/forecast/daily")
-    suspend fun getWeather(
-        @Query("q") query: String,
-        @Query("units") units: String = "standard",
-    ): Response<WeatherDTO>
+    @GET("locations/v1/cities/geoposition/search")
+    suspend fun findCurrentGeoPosition(
+        @Query("q") query: String
+    ): Response<GeoPositionDTO>
+
+    @GET("currentconditions/v1/{locationKey}")
+    suspend fun getCurrentConditions(
+        @Path("locationKey") locationKey: String
+    ): Response<List<CurrentConditionResponseDTO>>
 }

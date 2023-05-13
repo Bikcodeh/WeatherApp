@@ -6,7 +6,7 @@ import java.net.ConnectException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 
-sealed class Failure(val error: Exception?, val code: Int = 0) {
+sealed class Failure(val error: Exception?, val code: Int = 0): Exception() {
     class UnknownException(error: Exception? = null) : Failure(error)
     class NetworkConnection(error: Exception? = null) : Failure(error)
     class ServerError(code: Int) : Failure(null, code)

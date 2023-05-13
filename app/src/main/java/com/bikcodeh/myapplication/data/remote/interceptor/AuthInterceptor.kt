@@ -18,6 +18,6 @@ class AuthInterceptor: Interceptor {
     }
 
     companion object {
-        const val QUERY_API_KEY = "appid"
+        const val QUERY_API_KEY = "apikey"
     }
 }

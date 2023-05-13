@@ -16,28 +16,20 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 abstract class MVIViewModel<
-        State : ViewState,
         Effect : ViewSideEffect,
         Event : ViewEvent
         >(private val dispatcher: DispatcherProvider) : ViewModel() {
 
-    abstract fun setInitialState(): State
-
-    private val _uiState: MutableStateFlow<State> by lazy { MutableStateFlow(setInitialState()) }
-    val uiState: StateFlow<State> get() = _uiState.asStateFlow()
-
     private val _events = Channel<Event>(Channel.UNLIMITED)
 
-    private val _effects = Channel<Effect>(Channel.UNLIMITED)
-    protected val effects = _effects.receiveAsFlow()
-
+    val effects = Channel<Effect>(Channel.UNLIMITED)
     abstract fun handleEvents(event: Event)
 
-    protected fun sendEvent(event: () -> Event) =
+    fun sendEvent(event: () -> Event) =
         viewModelScope(dispatcher.io) { _events.send(event()) }
 
     protected fun setEffect(builder: () -> Effect) =
-        viewModelScope(dispatcher.io) { _effects.send(builder()) }
+        viewModelScope(dispatcher.io) { effects.send(builder()) }
 
     init {
         viewModelScope.launch(dispatcher.io) {
