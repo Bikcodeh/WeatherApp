@@ -1,6 +1,7 @@
 package com.bikcodeh.myapplication.ui.screens.home.viewmodel
 
 import androidx.annotation.StringRes
+import com.bikcodeh.myapplication.data.remote.dto.CoordinateDTO
 import com.bikcodeh.myapplication.data.remote.dto.currentcondition.CurrentConditionResponseDTO
 import com.bikcodeh.myapplication.domain.commons.ViewEvent
 import com.bikcodeh.myapplication.domain.commons.ViewSideEffect
@@ -12,7 +13,8 @@ sealed class HomeEffect : ViewSideEffect {
 }
 
 sealed class HomeEvent : ViewEvent {
-    data class GetWeather(val city: String) : HomeEvent()
+    data class GetWeather(val lat: String, val lon: String) : HomeEvent()
+    data class SetCoordinate(val coordinateDTO: CoordinateDTO): HomeEvent()
 }
 
 data class HomeUiState(

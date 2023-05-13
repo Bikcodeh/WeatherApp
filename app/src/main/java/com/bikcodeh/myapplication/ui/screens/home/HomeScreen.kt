@@ -14,11 +14,13 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bikcodeh.myapplication.data.remote.dto.CoordinateDTO
 import com.bikcodeh.myapplication.ui.screens.home.components.HomeTopBar
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeEffect
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeEvent
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeViewModel
 import com.bikcodeh.myapplication.ui.util.Permissions
+import com.bikcodeh.myapplication.ui.util.Util
 import kotlinx.coroutines.flow.receiveAsFlow
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -31,7 +33,13 @@ fun HomeScreen(
     val lifecycle = LocalLifecycleOwner.current.lifecycle
 
     LaunchedEffect(Unit) {
-        //homeViewModel.sendEvent { HomeEvent.GetWeather("seattle") }
+        Util.getCoordinates(context,
+            onError = {
+                navigateToPermission()
+            }, onSuccess = { lat, lon ->
+                homeViewModel.sendEvent { HomeEvent.SetCoordinate(CoordinateDTO(lat, lon)) }
+                homeViewModel.sendEvent { HomeEvent.GetWeather(lat, lon) }
+            })
     }
 
     DisposableEffect(key1 = true) {
@@ -58,7 +66,14 @@ fun HomeScreen(
         )
     }) { paddingValues ->
         HomeContent(state = state, effect = effect, paddingValues = paddingValues, onRetry = {
-            homeViewModel.sendEvent { HomeEvent.GetWeather("seattle") }
+            homeViewModel.coordinate.value?.let { coordinate ->
+                homeViewModel.sendEvent {
+                    HomeEvent.GetWeather(
+                        coordinate.latitude,
+                        coordinate.longitude
+                    )
+                }
+            }
         })
     }
 }
