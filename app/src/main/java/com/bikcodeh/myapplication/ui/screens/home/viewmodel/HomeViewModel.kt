@@ -7,7 +7,6 @@ import com.bikcodeh.myapplication.domain.repository.DispatcherProvider
 import com.bikcodeh.myapplication.domain.repository.WeatherRepository
 import com.bikcodeh.myapplication.ui.util.MVIViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -27,7 +26,6 @@ class HomeViewModel @Inject constructor(
     private fun getWeather() {
         setEffect { HomeEffect.Loading(true) }
         viewModelScope.launch(dispatcher.io) {
-            delay(3000)
             weatherRepository.findCurrentGeoPosition(lat = "3.4430794", lon = "-76.5393492")
                 .fold(
                     onSuccess = {
