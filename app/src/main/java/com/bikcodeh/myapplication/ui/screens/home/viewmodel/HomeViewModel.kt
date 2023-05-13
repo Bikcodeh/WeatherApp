@@ -5,6 +5,7 @@ import com.bikcodeh.myapplication.domain.commons.Failure
 import com.bikcodeh.myapplication.domain.commons.fold
 import com.bikcodeh.myapplication.domain.repository.DispatcherProvider
 import com.bikcodeh.myapplication.domain.repository.WeatherRepository
+import com.bikcodeh.myapplication.mocks.currentConditionMock
 import com.bikcodeh.myapplication.ui.util.MVIViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +20,11 @@ class HomeViewModel @Inject constructor(
     private val dispatcher: DispatcherProvider
 ) : MVIViewModel<HomeEffect, HomeEvent>(dispatcher = dispatcher) {
 
-    private val _viewState = MutableStateFlow(HomeUiState())
+    private val _viewState = MutableStateFlow(
+        HomeUiState(
+            data = currentConditionMock
+        )
+    )
     val viewState: StateFlow<HomeUiState> get() = _viewState.asStateFlow()
 
 
