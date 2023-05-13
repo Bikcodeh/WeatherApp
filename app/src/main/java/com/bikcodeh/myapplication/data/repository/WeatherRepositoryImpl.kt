@@ -34,9 +34,8 @@ class WeatherRepositoryImpl @Inject constructor(
         return withContext(dispatcherProvider.io) {
             makeSafeRequest { weatherApi.findCurrentGeoPosition(query = "$lat,$lon") }.fold(
                 onSuccess = { getWeather(it.key) },
-                onError = { throw it }
+                onError = { Result.Error(it) }
             )
         }
     }
-
 }

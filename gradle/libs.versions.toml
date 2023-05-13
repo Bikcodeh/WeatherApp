@@ -17,6 +17,8 @@ okhttp = "4.9.3"
 okhttp-login-interceptor = "4.9.0"
 moshi = "2.4.0"
 moshi-kotlin = "1.9.3"
+service-location = "18.0.0"
+easy-permission = "1.0.0"
 
 [libraries]
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -41,3 +43,5 @@ okHttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 okhttplogginginterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp-login-interceptor" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi-kotlin" }
 moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "moshi" }
+service-location= { module = "com.google.android.gms:play-services-location", version.ref = "service-location" }
+easy-permission= { module = "com.vmadalin:easypermissions-ktx", version.ref = "easy-permission" }

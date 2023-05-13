@@ -72,6 +72,7 @@ dependencies {
 
     implementation libs.core.ktx
     implementation libs.lifecycle.runtime
+    implementation libs.runtime.compose
     implementation libs.activity.compose
     implementation libs.compose.ui
     implementation libs.compose.constraint.layout
@@ -84,6 +85,9 @@ dependencies {
     implementation libs.timber
     implementation libs.splash.api
     kapt libs.hilt.compiler
+    implementation libs.service.location
+    implementation libs.easy.permission
+    implementation "com.google.accompanist:accompanist-permissions:0.31.2-alpha"
 
     /** Network */
     implementation libs.retrofit

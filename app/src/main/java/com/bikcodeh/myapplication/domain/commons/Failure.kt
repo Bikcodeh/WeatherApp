@@ -38,7 +38,7 @@ sealed class Failure(val error: Exception?, val code: Int = 0): Exception() {
         private fun handleHttpError(errorCode: Int): Int {
             return when (errorCode) {
                 500 -> R.string.error_server
-                503 -> R.string.error_server
+                503 -> R.string.error_server_limit_allowed
                 504 -> R.string.error_timeout
                 404 -> R.string.error_not_found_error
                 400 -> R.string.error_invalid_request_error
