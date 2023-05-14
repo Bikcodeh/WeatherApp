@@ -1,0 +1,23 @@
+{
+  "LocalObservationDateTime": "2023-05-14T15:35:00-05:00",
+  "EpochTime": 1684096500,
+  "WeatherText": "Cloudy",
+  "WeatherIcon": 7,
+  "HasPrecipitation": false,
+  "PrecipitationType": null,
+  "IsDayTime": true,
+  "Temperature": {
+    "Metric": {
+      "Value": 28.7,
+      "Unit": "C",
+      "UnitType": 17
+    },
+    "Imperial": {
+      "Value": 84,
+      "Unit": "F",
+      "UnitType": 18
+    }
+  },
+  "MobileLink": "http://www.accuweather.com/en/co/cali/111732/current-weather/111732?lang=en-us",
+  "Link": "http://www.accuweather.com/en/co/cali/111732/current-weather/111732?lang=en-us"
+}

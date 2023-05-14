@@ -1,0 +1,200 @@
+[
+  {
+    "DateTime": "2023-05-14T16:00:00-05:00",
+    "EpochDateTime": 1684098000,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": true,
+    "Temperature": {
+      "Value": 83,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 44,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=16&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=16&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T17:00:00-05:00",
+    "EpochDateTime": 1684101600,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": true,
+    "Temperature": {
+      "Value": 82,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 48,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=17&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=17&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T18:00:00-05:00",
+    "EpochDateTime": 1684105200,
+    "WeatherIcon": 15,
+    "IconPhrase": "Thunderstorms",
+    "HasPrecipitation": true,
+    "PrecipitationType": "Rain",
+    "PrecipitationIntensity": "Moderate",
+    "IsDaylight": true,
+    "Temperature": {
+      "Value": 79,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 52,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=18&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=18&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T19:00:00-05:00",
+    "EpochDateTime": 1684108800,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 78,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 49,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=19&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=19&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T20:00:00-05:00",
+    "EpochDateTime": 1684112400,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 77,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 49,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=20&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=20&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T21:00:00-05:00",
+    "EpochDateTime": 1684116000,
+    "WeatherIcon": 15,
+    "IconPhrase": "Thunderstorms",
+    "HasPrecipitation": true,
+    "PrecipitationType": "Rain",
+    "PrecipitationIntensity": "Heavy",
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 76,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 54,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=21&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=21&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T22:00:00-05:00",
+    "EpochDateTime": 1684119600,
+    "WeatherIcon": 15,
+    "IconPhrase": "Thunderstorms",
+    "HasPrecipitation": true,
+    "PrecipitationType": "Rain",
+    "PrecipitationIntensity": "Heavy",
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 75,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 52,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=22&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=22&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-14T23:00:00-05:00",
+    "EpochDateTime": 1684123200,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 75,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 48,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=23&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=1&hbhhour=23&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-15T00:00:00-05:00",
+    "EpochDateTime": 1684126800,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 74,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 36,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=0&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=0&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-15T01:00:00-05:00",
+    "EpochDateTime": 1684130400,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 73,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 20,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=1&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=1&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-15T02:00:00-05:00",
+    "EpochDateTime": 1684134000,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 73,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 20,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=2&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=2&lang=en-us"
+  },
+  {
+    "DateTime": "2023-05-15T03:00:00-05:00",
+    "EpochDateTime": 1684137600,
+    "WeatherIcon": 7,
+    "IconPhrase": "Cloudy",
+    "HasPrecipitation": false,
+    "IsDaylight": false,
+    "Temperature": {
+      "Value": 72,
+      "Unit": "F",
+      "UnitType": 18
+    },
+    "PrecipitationProbability": 20,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=3&lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/hourly-weather-forecast/111732?day=2&hbhhour=3&lang=en-us"
+  }
+]

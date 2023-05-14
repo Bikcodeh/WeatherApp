@@ -6,6 +6,8 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import com.bikcodeh.myapplication.R
 import com.google.android.gms.location.LocationServices
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 object Util {
 
@@ -31,5 +33,11 @@ object Util {
         TODAY(R.string.today),
         TOMORROW(R.string.tomorrow),
         NEXT_FIVE_DAYS(R.string.next_five_days)
+    }
+
+    fun formatDate(dateString: String): String {
+        val dateFormat = SimpleDateFormat("EEEE, d MMM", Locale.getDefault())
+        val date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault()).parse(dateString)
+        return dateFormat.format(date)
     }
 }

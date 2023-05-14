@@ -1,0 +1,190 @@
+{
+  "Headline": {
+    "EffectiveDate": "2023-05-14T13:00:00-05:00",
+    "EffectiveEpochDate": 1684087200,
+    "Severity": 3,
+    "Text": "Thunderstorms in the area this afternoon through this evening",
+    "Category": "thunderstorm",
+    "EndDate": "2023-05-15T01:00:00-05:00",
+    "EndEpochDate": 1684130400,
+    "MobileLink": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?lang=en-us",
+    "Link": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?lang=en-us"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2023-05-14T07:00:00-05:00",
+      "EpochDate": 1684065600,
+      "Temperature": {
+        "Minimum": {
+          "Value": 71,
+          "Unit": "F",
+          "UnitType": 18
+        },
+        "Maximum": {
+          "Value": 84,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "Day": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Night": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Heavy"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=1&lang=en-us",
+      "Link": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=1&lang=en-us"
+    },
+    {
+      "Date": "2023-05-15T07:00:00-05:00",
+      "EpochDate": 1684152000,
+      "Temperature": {
+        "Minimum": {
+          "Value": 69,
+          "Unit": "F",
+          "UnitType": 18
+        },
+        "Maximum": {
+          "Value": 80,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "Day": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Heavy"
+      },
+      "Night": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=2&lang=en-us",
+      "Link": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=2&lang=en-us"
+    },
+    {
+      "Date": "2023-05-16T07:00:00-05:00",
+      "EpochDate": 1684238400,
+      "Temperature": {
+        "Minimum": {
+          "Value": 70,
+          "Unit": "F",
+          "UnitType": 18
+        },
+        "Maximum": {
+          "Value": 81,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "Day": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Heavy"
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=3&lang=en-us",
+      "Link": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=3&lang=en-us"
+    },
+    {
+      "Date": "2023-05-17T07:00:00-05:00",
+      "EpochDate": 1684324800,
+      "Temperature": {
+        "Minimum": {
+          "Value": 70,
+          "Unit": "F",
+          "UnitType": 18
+        },
+        "Maximum": {
+          "Value": 87,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "Day": {
+        "Icon": 7,
+        "IconPhrase": "Cloudy",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Night": {
+        "Icon": 7,
+        "IconPhrase": "Cloudy",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=4&lang=en-us",
+      "Link": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=4&lang=en-us"
+    },
+    {
+      "Date": "2023-05-18T07:00:00-05:00",
+      "EpochDate": 1684411200,
+      "Temperature": {
+        "Minimum": {
+          "Value": 71,
+          "Unit": "F",
+          "UnitType": 18
+        },
+        "Maximum": {
+          "Value": 86,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "Day": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Night": {
+        "Icon": 15,
+        "IconPhrase": "Thunderstorms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Heavy"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=5&lang=en-us",
+      "Link": "http://www.accuweather.com/en/co/cali/111732/daily-weather-forecast/111732?day=5&lang=en-us"
+    }
+  ]
+}
