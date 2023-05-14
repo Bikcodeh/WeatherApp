@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bikcodeh.myapplication.R
@@ -78,12 +79,13 @@ fun HomeContent(
                     .horizontalScroll(rememberScrollState())
                     .padding(horizontal = 16.dp)
             ) {
-                Util.buildWeatherButtons(context).forEach { weatherButton ->
+                Util.WeatherButtons.values().map { weatherButtonText ->
+                    val text = stringResource(id = weatherButtonText.text )
                     WeatherTextButton(
-                        isSelected = forecastSelected == weatherButton.text,
-                        title = weatherButton.text,
+                        isSelected = forecastSelected == text,
+                        title = text,
                         onClick = {
-                            forecastSelected = weatherButton.text
+                            forecastSelected = text
                             //TODO: Logic to change the data
                         }
                     )
