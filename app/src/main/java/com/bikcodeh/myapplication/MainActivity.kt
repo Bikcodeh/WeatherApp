@@ -20,9 +20,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navHostController: NavHostController
+    private var isReady = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+        installSplashScreen().setKeepOnScreenCondition { isReady }
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             navHostController = rememberNavController()
@@ -35,6 +36,7 @@ class MainActivity : ComponentActivity() {
                 SetupNavGraph(
                     navController = navHostController,
                     startDestination = startDestination,
+                    onReady = { isReady = false }
                 )
             }
         }

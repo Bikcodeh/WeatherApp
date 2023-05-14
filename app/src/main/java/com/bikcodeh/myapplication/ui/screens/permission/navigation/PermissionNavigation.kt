@@ -9,7 +9,8 @@ import com.bikcodeh.myapplication.ui.screens.permission.PermissionTextProvider
 fun NavGraphBuilder.permissionRoute(
     onGranted: () -> Unit,
     permission: String,
-    permissionTextProvider: PermissionTextProvider
+    permissionTextProvider: PermissionTextProvider,
+    onReady: () -> Unit
 ) {
     composable(route = Screens.Permission.route) {
         PermissionScreen(
@@ -17,5 +18,6 @@ fun NavGraphBuilder.permissionRoute(
             onGranted = onGranted,
             permissionTextProvider = permissionTextProvider
         )
+        onReady()
     }
 }

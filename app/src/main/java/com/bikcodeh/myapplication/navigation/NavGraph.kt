@@ -5,20 +5,27 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.bikcodeh.myapplication.ui.screens.home.navigation.homeRoute
+import com.bikcodeh.myapplication.ui.screens.nextfivedays.navigation.nextFiveDaysRoute
 import com.bikcodeh.myapplication.ui.screens.permission.LocationTextProvider
 import com.bikcodeh.myapplication.ui.screens.permission.navigation.permissionRoute
 
 @Composable
 fun SetupNavGraph(
     navController: NavHostController,
-    startDestination: String
+    startDestination: String,
+    onReady: () -> Unit
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-        homeRoute(navigateToPermission = {
+        homeRoute(
+            onReady = onReady,
+            navigateToPermission = {
             navController.navigate(Screens.Permission.route) {
                 popUpTo(Screens.Permission.route)
             }
-        })
+        },
+            onFiveDaysForecast = {
+                navController.navigate(Screens.NextFiveDays.route)
+            })
         permissionRoute(
             onGranted = {
                 navController.navigate(Screens.Home.route) {
@@ -26,7 +33,9 @@ fun SetupNavGraph(
                 }
             },
             permission = Manifest.permission.ACCESS_FINE_LOCATION,
-            permissionTextProvider = LocationTextProvider()
+            permissionTextProvider = LocationTextProvider(),
+            onReady = onReady
         )
+        nextFiveDaysRoute()
     }
 }

@@ -27,7 +27,8 @@ import kotlinx.coroutines.flow.receiveAsFlow
 @Composable
 fun HomeScreen(
     homeViewModel: HomeViewModel,
-    navigateToPermission: () -> Unit
+    navigateToPermission: () -> Unit,
+    onFiveDaysForecast: () -> Unit
 ) {
     val context = LocalContext.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
@@ -65,15 +66,18 @@ fun HomeScreen(
             modifier = Modifier.statusBarsPadding()
         )
     }) { paddingValues ->
-        HomeContent(state = state, effect = effect, paddingValues = paddingValues, onRetry = {
-            homeViewModel.coordinate.value?.let { coordinate ->
-                homeViewModel.sendEvent {
-                    HomeEvent.GetWeather(
-                        coordinate.latitude,
-                        coordinate.longitude
-                    )
+        HomeContent(
+            state = state, effect = effect, paddingValues = paddingValues, onRetry = {
+                homeViewModel.coordinate.value?.let { coordinate ->
+                    homeViewModel.sendEvent {
+                        HomeEvent.GetWeather(
+                            coordinate.latitude,
+                            coordinate.longitude
+                        )
+                    }
                 }
-            }
-        })
+            },
+            onFiveDaysForecast = onFiveDaysForecast
+        )
     }
 }

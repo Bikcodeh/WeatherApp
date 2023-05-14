@@ -8,10 +8,17 @@ import com.bikcodeh.myapplication.ui.screens.home.HomeScreen
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeViewModel
 
 fun NavGraphBuilder.homeRoute(
-    navigateToPermission: () -> Unit
+    navigateToPermission: () -> Unit,
+    onFiveDaysForecast: () -> Unit,
+    onReady: () -> Unit
 ) {
     composable(route = Screens.Home.route) {
         val homeViewModel = hiltViewModel<HomeViewModel>()
-        HomeScreen(homeViewModel = homeViewModel, navigateToPermission = navigateToPermission)
+        HomeScreen(
+            homeViewModel = homeViewModel,
+            navigateToPermission = navigateToPermission,
+            onFiveDaysForecast = onFiveDaysForecast
+        )
+        onReady()
     }
 }

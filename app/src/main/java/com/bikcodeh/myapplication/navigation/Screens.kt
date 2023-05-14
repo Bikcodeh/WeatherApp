@@ -9,4 +9,5 @@ sealed class Screens(val route: String) {
     object Favorite: Screens(route = "favorite_screen")
     object Search: Screens(route = "search_screen")
     object Settings: Screens(route = "settings_screen")
+    object NextFiveDays: Screens(route = "next_five_day_screen")
 }
