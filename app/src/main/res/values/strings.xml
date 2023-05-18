@@ -26,4 +26,5 @@
     <string name="permission_permanent_description">It seems you permanently declined camera permission.You can go to the app settings to grant it.</string>
     <string name="try_again">Try again</string>
     <string name="hourly_forecast">Hourly Forecast</string>
+    <string name="uv_index">Uv Index</string>
 </resources>

@@ -40,4 +40,21 @@ object Util {
         val date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault()).parse(dateString)
         return dateFormat.format(date)
     }
+
+    /* low (1-2)
+    moderate (3-5)
+    high (6-7)
+    very high (8-10)
+    extreme (11 and above). */
+
+    fun getRangeUvIndex(value: Int): Float {
+        return when {
+            value in 1..2 -> 0.1f
+            value in 3..5 -> 0.5f
+            value in 6..7 -> 0.6f
+            value in 8..10 -> 0.8f
+            value > 10 -> 0.95f
+            else -> 0.01f
+        }
+    }
 }
