@@ -7,14 +7,22 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bikcodeh.myapplication.R
 import com.bikcodeh.myapplication.data.remote.dto.CoordinateDTO
+import com.bikcodeh.myapplication.domain.commons.Failure
+import com.bikcodeh.myapplication.ui.components.ErrorScreen
 import com.bikcodeh.myapplication.ui.screens.home.components.HomeTopBar
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeEffect
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeEvent
@@ -32,15 +40,26 @@ fun HomeScreen(
 ) {
     val context = LocalContext.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
+    var errorLocation by remember { mutableStateOf(false) }
+    var getCoordinates by remember { mutableStateOf(true) }
 
-    LaunchedEffect(Unit) {
-        Util.getCoordinates(context,
-            onError = {
-                navigateToPermission()
-            }, onSuccess = { lat, lon ->
-                //homeViewModel.sendEvent { HomeEvent.SetCoordinate(CoordinateDTO(lat, lon)) }
-                //homeViewModel.sendEvent { HomeEvent.GetWeather(lat, lon) }
-            })
+    LaunchedEffect(getCoordinates) {
+        if (getCoordinates) {
+            Util.getCoordinates(context,
+                onError = { failure ->
+                    getCoordinates = false
+                    if (failure is Failure.NotPermissionException) {
+                        navigateToPermission()
+                    } else {
+                        errorLocation = true
+                    }
+                }, onSuccess = { lat, lon ->
+                    errorLocation = false
+                    getCoordinates = false
+                    //homeViewModel.sendEvent { HomeEvent.SetCoordinate(CoordinateDTO(lat, lon)) }
+                    //homeViewModel.sendEvent { HomeEvent.GetWeather(lat, lon) }
+                })
+        }
     }
 
     DisposableEffect(key1 = true) {
@@ -61,23 +80,29 @@ fun HomeScreen(
         initialValue = HomeEffect.Loading(false)
     )
 
-    Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
-        HomeTopBar(
-            modifier = Modifier.statusBarsPadding()
-        )
-    }) { paddingValues ->
-        HomeContent(
-            state = state, effect = effect, paddingValues = paddingValues, onRetry = {
-                homeViewModel.coordinate.value?.let { coordinate ->
-                    homeViewModel.sendEvent {
-                        HomeEvent.GetWeather(
-                            coordinate.latitude,
-                            coordinate.longitude
-                        )
+    if (errorLocation) {
+        ErrorScreen(message = stringResource(id = R.string.error_not_location)) {
+            getCoordinates = true
+        }
+    } else {
+        Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
+            HomeTopBar(
+                modifier = Modifier.statusBarsPadding()
+            )
+        }) { paddingValues ->
+            HomeContent(
+                state = state, effect = effect, paddingValues = paddingValues, onRetry = {
+                    homeViewModel.coordinate.value?.let { coordinate ->
+                        homeViewModel.sendEvent {
+                            HomeEvent.GetWeather(
+                                coordinate.latitude,
+                                coordinate.longitude
+                            )
+                        }
                     }
-                }
-            },
-            onFiveDaysForecast = onFiveDaysForecast
-        )
+                },
+                onFiveDaysForecast = onFiveDaysForecast
+            )
+        }
     }
 }

@@ -5,13 +5,15 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import com.bikcodeh.myapplication.R
+import com.bikcodeh.myapplication.domain.commons.Failure
 import com.google.android.gms.location.LocationServices
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 object Util {
 
-    fun getCoordinates(context: Context, onSuccess: (String, String) -> Unit, onError: () -> Unit) {
+    fun getCoordinates(context: Context, onSuccess: (String, String) -> Unit, onError: (Failure) -> Unit) {
         if (ActivityCompat.checkSelfPermission(
                 context,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -20,12 +22,16 @@ object Util {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            onError()
+            onError(Failure.NotPermissionException())
             return
         }
         LocationServices.getFusedLocationProviderClient(context).lastLocation
             .addOnSuccessListener { location ->
-                onSuccess(location.latitude.toString(), location.longitude.toString())
+                if (location != null) {
+                    onSuccess(location.latitude.toString(), location.longitude.toString())
+                } else {
+                    onError(Failure.NotLocationException())
+                }
             }
     }
 
@@ -37,7 +43,8 @@ object Util {
 
     fun formatDate(dateString: String): String {
         val dateFormat = SimpleDateFormat("EEEE, d MMM", Locale.getDefault())
-        val date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault()).parse(dateString)
+        val date =
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault()).parse(dateString)
         return dateFormat.format(date)
     }
 

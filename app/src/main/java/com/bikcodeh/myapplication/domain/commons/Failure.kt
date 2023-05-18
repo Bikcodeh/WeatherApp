@@ -12,6 +12,8 @@ sealed class Failure(val error: Exception?, val code: Int = 0): Exception() {
     class ServerError(code: Int) : Failure(null, code)
     class ParsingException(error: Exception? = null) : Failure(error)
     class HttpInternalException(code: Int) : Failure(null, code)
+    class NotPermissionException(error: Exception? = null): Failure(error)
+    class NotLocationException(error: Exception? = null): Failure(error)
 
     companion object {
         fun analyzeException(exception: Exception?): Failure {
@@ -32,6 +34,8 @@ sealed class Failure(val error: Exception?, val code: Int = 0): Exception() {
                 is ServerError -> R.string.error_server
                 is UnknownException -> R.string.error_unknown
                 is HttpInternalException -> handleHttpError(failure.code)
+                is NotLocationException -> R.string.error_not_location
+                is NotPermissionException -> R.string.permission_required_description
             }
         }
 

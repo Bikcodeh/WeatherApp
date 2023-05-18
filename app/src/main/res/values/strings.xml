@@ -27,4 +27,5 @@
     <string name="try_again">Try again</string>
     <string name="hourly_forecast">Hourly Forecast</string>
     <string name="uv_index">Uv Index</string>
+    <string name="error_not_location">An error happened trying to get your current location, please try again later.</string>
 </resources>
