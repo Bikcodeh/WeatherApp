@@ -48,12 +48,6 @@ object Util {
         return dateFormat.format(date)
     }
 
-    /* low (1-2)
-    moderate (3-5)
-    high (6-7)
-    very high (8-10)
-    extreme (11 and above). */
-
     fun getRangeUvIndex(value: Int): Float {
         return when {
             value in 1..2 -> 0.1f
