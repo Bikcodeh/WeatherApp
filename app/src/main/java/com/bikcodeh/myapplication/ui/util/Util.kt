@@ -7,7 +7,6 @@ import androidx.core.app.ActivityCompat
 import com.bikcodeh.myapplication.R
 import com.bikcodeh.myapplication.domain.commons.Failure
 import com.google.android.gms.location.LocationServices
-import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.Locale
 
