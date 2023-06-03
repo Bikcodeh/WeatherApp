@@ -49,4 +49,5 @@ service-location= { module = "com.google.android.gms:play-services-location", ve
 easy-permission= { module = "com.vmadalin:easypermissions-ktx", version.ref = "easy-permission" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist"}
 accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist"}
+accompanist-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "accompanist"}
 crashlytics = { module= "com.google.firebase:firebase-crashlytics-ktx", version.ref = "crashlytics"}

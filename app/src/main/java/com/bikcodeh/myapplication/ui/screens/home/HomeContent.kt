@@ -1,13 +1,8 @@
 package com.bikcodeh.myapplication.ui.screens.home
 
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
@@ -26,9 +21,11 @@ import com.bikcodeh.myapplication.mocks.currentConditionMock
 import com.bikcodeh.myapplication.ui.components.CardHeader
 import com.bikcodeh.myapplication.ui.components.ErrorScreen
 import com.bikcodeh.myapplication.ui.components.WeatherItem
+import com.bikcodeh.myapplication.ui.screens.home.components.UvIndex
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeEffect
 import com.bikcodeh.myapplication.ui.screens.home.viewmodel.HomeUiState
 
+@OptIn(ExperimentalLayoutApi::class)
 @ExperimentalMaterial3Api
 @Composable
 fun HomeContent(
@@ -57,83 +54,106 @@ fun HomeContent(
         )
     }
     state.data?.let {
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
                     top = paddingValues.calculateTopPadding(),
                     bottom = paddingValues.calculateBottomPadding()
                 )
-                .verticalScroll(rememberScrollState())
         ) {
 
-            CardHeader(
-                date = "Sat, 3 Aug",
-                temperature = "30 °c",
-                location = state.data?.weatherText ?: "NULLL"
-            )
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(text = stringResource(id = R.string.hourly_forecast))
-                TextButton(onClick = onFiveDaysForecast) {
-                    Text(text = stringResource(id = R.string.next_five_days))
+            item {
+                CardHeader(
+                    date = "Sat, 3 Aug",
+                    temperature = "30 °c",
+                    location = state.data?.weatherText ?: "NULLL"
+                )
+            }
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = stringResource(id = R.string.hourly_forecast))
+                    TextButton(onClick = onFiveDaysForecast) {
+                        Text(text = stringResource(id = R.string.next_five_days))
+                    }
+                    /*Util.WeatherButtons.values().map { weatherButtonText ->
+                        val text = stringResource(id = weatherButtonText.text )
+                        WeatherTextButton(
+                            isSelected = forecastSelected == text,
+                            title = text,
+                            onClick = {
+                                forecastSelected = text
+                                //TODO: Logic to change the data
+                            }
+                        )
+                    }*/
                 }
-                /*Util.WeatherButtons.values().map { weatherButtonText ->
-                    val text = stringResource(id = weatherButtonText.text )
-                    WeatherTextButton(
-                        isSelected = forecastSelected == text,
-                        title = text,
-                        onClick = {
-                            forecastSelected = text
-                            //TODO: Logic to change the data
-                        }
-                    )
-                }*/
             }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp)
-                    .horizontalScroll(rememberScrollState())
-            ) {
-                WeatherItem(
-                    temperature = "26",
-                    time = "10 AM",
-                    weatherIcon = R.drawable.ic_blizzard
-                )
-                WeatherItem(
-                    temperature = "20",
-                    time = "2 PM",
-                    weatherIcon = R.drawable.ic_blowing_snow
-                )
-                WeatherItem(
-                    temperature = "32",
-                    time = "9 AM",
-                    weatherIcon = R.drawable.ic_heavy_rain
-                )
-                WeatherItem(
-                    temperature = "26",
-                    time = "10 AM",
-                    weatherIcon = R.drawable.ic_blizzard
-                )
-                WeatherItem(
-                    temperature = "20",
-                    time = "2 PM",
-                    weatherIcon = R.drawable.ic_blowing_snow
-                )
-                WeatherItem(
-                    temperature = "32",
-                    time = "9 AM",
-                    weatherIcon = R.drawable.ic_heavy_rain
-                )
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp)
+                        .horizontalScroll(rememberScrollState())
+                ) {
+                    WeatherItem(
+                        temperature = "26",
+                        time = "10 AM",
+                        weatherIcon = R.drawable.ic_blizzard
+                    )
+                    WeatherItem(
+                        temperature = "20",
+                        time = "2 PM",
+                        weatherIcon = R.drawable.ic_blowing_snow
+                    )
+                    WeatherItem(
+                        temperature = "32",
+                        time = "9 AM",
+                        weatherIcon = R.drawable.ic_heavy_rain
+                    )
+                    WeatherItem(
+                        temperature = "26",
+                        time = "10 AM",
+                        weatherIcon = R.drawable.ic_blizzard
+                    )
+                    WeatherItem(
+                        temperature = "20",
+                        time = "2 PM",
+                        weatherIcon = R.drawable.ic_blowing_snow
+                    )
+                    WeatherItem(
+                        temperature = "32",
+                        time = "9 AM",
+                        weatherIcon = R.drawable.ic_heavy_rain
+                    )
+                }
+            }
+
+            item {
+                BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+                    val widtha = this.maxWidth.value / 2 - 24
+                    FlowRow(
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(all = 16.dp)
+                    ) {
+                        state.data.uVIndex?.let { uvIndex ->
+                            UvIndex(value = "$uvIndex", size = widtha.dp)
+                        }
+                        state.data.uVIndex?.let { uvIndex ->
+                            UvIndex(value = "$uvIndex", size = widtha.dp)
+                        }
+                    }
+                }
             }
         }
     }

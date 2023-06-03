@@ -92,6 +92,7 @@ dependencies {
     implementation libs.crashlytics
     implementation libs.accompanist.permissions
     implementation libs.accompanist.insets
+    implementation libs.accompanist.foundation
 
     /** Network */
     implementation libs.retrofit
